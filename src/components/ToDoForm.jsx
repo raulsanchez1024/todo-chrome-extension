@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import types from '../state/types';
 
-function ToDoForm({ tasks }) {
+
+function ToDoForm({ tasks, dispatch }) {
   const [value, setValue] = useState('');
 
-  const handleSubmit = e => {
+  function handleSubmit(e) {
     e.preventDefault();
-    // add value to localState
-    const newTask = { title: value };
-    const updatedTasks = [...tasks, newTask];
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-    console.log(value);
-    console.log(updatedTasks);
+    if (value) {
+    const newTask = { title: value, completed: false, id: value };
+    dispatch({ type: types.ADD_TASK, payload: { task: newTask } });
     setValue('');
+    }
   }
 
   return (
