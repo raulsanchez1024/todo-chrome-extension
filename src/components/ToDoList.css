@@ -1,0 +1,7 @@
+.to-do-list__completed {
+  text-decoration: line-through;
+}
+
+.to-do-list__not-completed {
+  text-decoration: none;
+}

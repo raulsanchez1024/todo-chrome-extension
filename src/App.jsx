@@ -8,6 +8,8 @@ import ToDoList from './components/ToDoList';
 
 import './App.css';
 
+const rootClass = 'main';
+
 function setTasksInLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -41,13 +43,12 @@ function toggleTask(id) {
 
   const updatedTasks = tasks.map(task => {
     if (task.id === id) {
-      return { ...task, completed: !task.completed};
+      return { ...task, completed: !task.completed };
     }
     return task;
   });
   setTasksInLocalStorage(updatedTasks);
 }
-
 
 function reducer(state, action) {
   switch (action.type) {
@@ -79,21 +80,17 @@ function reducer(state, action) {
   }
 }
 
-const rootClass = 'toDo';
-
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { tasks } = state;
 
   useEffect(() => {
     dispatch({ type: types.FETCH_TODOS });
   }, []);
 
-  console.log('state', state);
-  const { tasks } = state;
-
   return (
     <div className={`${rootClass}__container`}>
-      <h3 className={`${rootClass}__title`}>To Do</h3>
+      <h3 className={`${rootClass}__title`}>to-do</h3>
       <ToDoList tasks={tasks} dispatch={dispatch} />
       <ToDoForm tasks={tasks} dispatch={dispatch} />
     </div>

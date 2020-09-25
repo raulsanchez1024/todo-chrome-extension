@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import types from '../state/types';
 
-
 function ToDoForm({ tasks, dispatch }) {
   const [value, setValue] = useState('');
 
