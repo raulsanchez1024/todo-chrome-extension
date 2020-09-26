@@ -8,7 +8,7 @@ import ToDoList from './components/ToDoList';
 
 import './App.css';
 
-const rootClass = 'main';
+const rootClass = 'app';
 
 function setTasksInLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -53,6 +53,7 @@ function toggleTask(id) {
 function reducer(state, action) {
   switch (action.type) {
     case types.FETCH_TODOS:
+      getTasks();
       return {
         ...state,
         tasks: getTasks(),
