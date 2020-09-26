@@ -3,8 +3,9 @@ import types from '../state/types';
 
 import './ToDoList.css';
 
+const rootClass = 'to-do-list';
+
 function ToDoList({ tasks, dispatch }) {
-  const rootClass = 'to-do-list';
 
   function deleteTask(id) {
     return dispatch({ type: types.DELETE_TASK, payload: { id } });
@@ -21,10 +22,20 @@ function ToDoList({ tasks, dispatch }) {
           `${rootClass}__completed` : `${rootClass}__not-completed`;
 
         return (
-          <li key={title}>
+          <li className={`${rootClass}__task`} key={title}>
             <span className={toggledClass}>{ title }</span>
-            <button onClick={() => toggleTask(id)}>toggle</button>
-            <button onClick={() => deleteTask(id)}>x</button>
+            <button
+              className={`${rootClass}__toggle-btn`}
+              onClick={() => toggleTask(id)}
+            >
+              Toggle
+            </button>
+            <button
+              className={`${rootClass}__delete-btn`}
+              onClick={() => deleteTask(id)}
+            >
+              🗑
+            </button>
           </li>
         );
       })}

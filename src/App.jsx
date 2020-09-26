@@ -93,7 +93,7 @@ function App() {
     <div className={`${rootClass}__container`}>
       <h3 className={`${rootClass}__title`}>to-do</h3>
       <ToDoList tasks={tasks} dispatch={dispatch} />
-      <ToDoForm tasks={tasks} dispatch={dispatch} />
+      <ToDoForm dispatch={dispatch} />
     </div>
   );
 }

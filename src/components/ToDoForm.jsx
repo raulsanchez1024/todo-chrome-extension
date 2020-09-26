@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import types from '../state/types';
 
-function ToDoForm({ tasks, dispatch }) {
+import './ToDoForm.css';
+
+const rootClass = 'to-do-form';
+
+function ToDoForm({ dispatch }) {
   const [value, setValue] = useState('');
 
   function handleSubmit(e) {
@@ -20,7 +24,7 @@ function ToDoForm({ tasks, dispatch }) {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <input type="submit" value="Create Task"/>
+      <input className={`${rootClass}__btn`} type="submit" value="Create Task"/>
     </form>
   );
 }

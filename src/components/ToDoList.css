@@ -5,3 +5,16 @@
 .to-do-list__not-completed {
   text-decoration: none;
 }
+
+.to-do-list__toggle-btn {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.to-do-list__delete-btn {
+  cursor: pointer;
+}
+
+.to-do-list__task {
+  margin-bottom: 0.5rem;
+}
