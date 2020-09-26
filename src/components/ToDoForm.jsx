@@ -5,7 +5,7 @@ import './ToDoForm.css';
 
 const rootClass = 'to-do-form';
 
-function ToDoForm({ tasks, dispatch }) {
+function ToDoForm({ dispatch }) {
   const [value, setValue] = useState('');
 
   function handleSubmit(e) {
