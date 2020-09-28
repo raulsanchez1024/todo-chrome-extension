@@ -15,8 +15,8 @@ function setTasksInLocalStorage(tasks) {
 }
 
 function getTasks() {
-  const taksFromLocalStorage = localStorage.getItem('tasks');
-  if (!taksFromLocalStorage) {
+  const tasksFromLocalStorage = localStorage.getItem('tasks');
+  if (!tasksFromLocalStorage) {
       return localStorage.setItem(
         'tasks',
         JSON.stringify([]),
@@ -27,8 +27,8 @@ function getTasks() {
 }
 
 function addTask(task) {
-  const taksFromLocalStorage = JSON.parse(localStorage.getItem('tasks'));
-  const updatedTasks = [...taksFromLocalStorage, task];
+  const tasksFromLocalStorage = JSON.parse(localStorage.getItem('tasks'));
+  const updatedTasks = [...tasksFromLocalStorage, task];
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 }
 
